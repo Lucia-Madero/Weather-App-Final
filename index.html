@@ -18,5 +18,134 @@
     <link rel="stylesheet" href="src/styles.css" />
     <title>The weather</title>
   </head>
-  <body></body>
+  <body>
+    <div class="container">
+      <div class="row">
+        <div class="col-6">
+          <form id="search-form">
+            <input
+              type="text"
+              class="form-control"
+              placeholder="Search city"
+              autocomplete="off"
+              id="search-box"
+            />
+          </form>
+        </div>
+        <div class="col-2">
+          <button
+            type="button"
+            class="btn btn-primary"
+            value="Search"
+            id="search-button"
+          ></button>
+        </div>
+        <div class="col-2">
+          <button
+            type="button"
+            class="btn btn-primary"
+            value="Current"
+            id="current-button"
+          ></button>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-3"></div>
+        <div class="col-3">
+          <div class="today">
+            <h1 id="current-city"></h1>
+            <img class="image-today" src="media/cloudy.png" alt="sunny" />
+            <h4 id="celsius-temp"></h4>
+            <div class="units">
+              <a href="#" id="celsius-link">°C</a> |
+              <a href="#" id="faren-link">°F</a>
+            </div>
+            <br />
+            <h4 id="description">Sunny</h4>
+            <br />
+            <span class="humidity" id="humidity">Humidity 81 %</span>
+            <br />
+            <span class="wind" id="wind">Wind 6 km/h</span>
+          </div>
+        </div>
+        <div class="col-3">
+          <div class="calendar">
+            <div class="card mb-3" style="width: 15rem">
+              <div class="row g-0">
+                <div class="col-md-4">
+                  <img
+                    class="calendar-image"
+                    src="media/calendarbis.png"
+                    alt="calendar"
+                  />
+                </div>
+                <div class="col-md-8">
+                  <div class="card-body">
+                    <h5 class="card-title" id="today">Sunday</h5>
+                    <p class="card-text" id="current-date"></p>
+                    <p class="card-text" id="current-time">14:29</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="forecast">
+          <div class="day-one">
+            <div class="card" style="width: 11rem">
+              <div class="card-body">
+                <h4>Monday</h4>
+                <img src="media/cloudy.png" alt="cloudy" />
+                <h5>5° 4°</h5>
+              </div>
+            </div>
+          </div>
+          <div class="day-two">
+            <div class="card" style="width: 11rem">
+              <div class="card-body">
+                <h4>Tuesday</h4>
+                <img src="media/rain_light.png" alt="light rain" />
+                <h5>8° 0°</h5>
+              </div>
+            </div>
+          </div>
+          <div class="day-three">
+            <div class="card" style="width: 11rem">
+              <div class="card-body">
+                <h4>Wednesday</h4>
+                <img src="media/rain_light.png" alt="light rain" />
+                <h5>4°3°</h5>
+              </div>
+            </div>
+          </div>
+          <div class="day-four">
+            <div class="card" style="width: 11rem">
+              <div class="card-body">
+                <h4>Thursday</h4>
+                <img src="media/rain_light.png" alt="light rain" />
+                <h5>6° -2°</h5>
+              </div>
+            </div>
+          </div>
+          <div class="day-five">
+            <div class="card" style="width: 11rem">
+              <div class="card-body">
+                <h4>Friday</h4>
+                <img src="media/snow_light.png" alt="light snow" />
+                <h5>2° -2°</h5>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <small>
+        <a href="https://github.com/Lucia-Madero/Weather-App" target="_blank"
+          >Open-source code</a
+        >
+        by Lucía Madero Aguado
+      </small>
+    </div>
+  </body>
 </html>
