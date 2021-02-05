@@ -118,6 +118,8 @@ let farenheitLink = document.querySelector("#faren-link");
 farenheitLink.addEventListener("click", displayFaren);
 let searchForm = document.querySelector("#search-form");
 searchForm.addEventListener("submit", showTemp);
+let SearchButton = document.querySelector("#search-button");
+SearchButton.addEventListener("click", showTemp);
 let currentButton = document.querySelector("#current-button");
 currentButton.addEventListener("click", restoreCurrent);
 searchCity("Brussels");
