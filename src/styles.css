@@ -5,7 +5,7 @@ body {
   padding: 50px;
   font-family: "Yusei Magic", sans-serif;
 }
-.btn-primary {
+.btn .btn-primary {
   margin-left: 8px;
   background: white;
   color: black;
