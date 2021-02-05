@@ -5,10 +5,11 @@ body {
   padding: 50px;
   font-family: "Yusei Magic", sans-serif;
 }
-.btn .btn-primary {
+.btn-primary {
   margin-left: 8px;
   background: white;
   color: black;
+  border: 1px solid #ced4da;
 }
 .calendar img {
   max-width: 100px;
