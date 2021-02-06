@@ -33,19 +33,22 @@ let minutes = now.getMinutes();
 if (minutes < 10) {
   minutes = `0${minutes}`;
 }
-let h5 = document.querySelector("#today");
-h5.innerHTML = `${day}`;
-let currentDate = document.querySelector("#current-date");
-currentDate.innerHTML = `${number} ${month}`;
-let currentTime = document.querySelector("#current-time");
-currentTime.innerHTML = `${hour}:${minutes}`;
+function displayTodayInfo() {
+  let todayCalendar = document.querySelector("#today-calendar");
+  todayCalendar.innerHTML = `${day}`;
+  let currentDate = document.querySelector("#current-date");
+  currentDate.innerHTML = `${number} ${month}`;
+  let currentTime = document.querySelector("#current-time");
+  currentTime.innerHTML = `${hour}:${minutes}`;
+}
 
 let city = document.querySelector("#search-box");
 let title = document.querySelector("#current-city");
 let mainTemp = document.querySelector("#celsius-temp");
+let apiKey = "b8472ba63e135218f57d24b1f32f73fa";
 
 function showCity(response) {
-  title.innerHTML = city.value;
+  title.innerHTML = response.data.name;
   mainTemp.innerHTML = Math.round(response.data.main.temp);
   let description = response.data.weather[0].main;
   let subtitle = document.querySelector("#description");
@@ -80,7 +83,6 @@ function displayFaren(event) {
 }
 
 function showCurrent(response) {
-  console.log(response.data);
   let city = response.data.name;
   title.innerHTML = city;
   mainTemp.innerHTML = Math.round(response.data.main.temp);
@@ -95,10 +97,9 @@ function showCurrent(response) {
   currentWind.innerHTML = `Wind ${wind} %`;
 }
 
-function showPosition(position) {
+function searchByCityCoords(position) {
   let lat = position.coords.latitude;
   let lon = position.coords.longitude;
-  let apiKey = "b8472ba63e135218f57d24b1f32f73fa";
   let apiUrl = `https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lon}&units=metric&appid=${apiKey}`;
   axios.get(`${apiUrl}`).then(showCurrent);
 }
@@ -109,10 +110,11 @@ function showTemp(event, element) {
   searchCity(element.value);
 }
 
-function searchCity(city) {
-  //let loadCity = document.querySelector("#current-city");
-  //loadCity.innerHTML = city;
-  let apiKey = "b8472ba63e135218f57d24b1f32f73fa";
+function searchByCityName(city) {
+  if (city == "") {
+    alert("Please enter a city");
+    return;
+  }
   let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${city}&units=metric&appid=${apiKey}`;
   axios.get(`${apiUrl}`).then(showCity);
 }
@@ -131,4 +133,5 @@ let SearchButton = document.querySelector("#search-button");
 SearchButton.addEventListener("click", showTemp);
 let currentButton = document.querySelector("#current-button");
 currentButton.addEventListener("click", restoreCurrent);
-searchCity("Brussels");
+searchByCityName("Brussels");
+displayTodayInfo();
