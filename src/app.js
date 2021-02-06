@@ -26,7 +26,13 @@ let day = days[now.getDay()];
 let number = now.getDate();
 let month = months[now.getMonth()];
 let hour = now.getHours();
+if (hour < 10) {
+  hour = ` 0${hour}`;
+}
 let minutes = now.getMinutes();
+if (minutes < 10) {
+  minutes = `0${minutes}`;
+}
 let h5 = document.querySelector("#today");
 h5.innerHTML = `${day}`;
 let currentDate = document.querySelector("#current-date");
@@ -34,13 +40,13 @@ currentDate.innerHTML = `${number} ${month}`;
 let currentTime = document.querySelector("#current-time");
 currentTime.innerHTML = `${hour}:${minutes}`;
 
+let city = document.querySelector("#search-box");
+let title = document.querySelector("#current-city");
+let mainTemp = document.querySelector("#celsius-temp");
+
 function showCity(response) {
-  let city = document.querySelector("#search-box");
-  let h1 = document.querySelector("#current-city");
-  h1.innerHTML = city.value;
-  let temp = Math.round(response.data.main.temp);
-  let h4 = document.querySelector("#celsius-temp");
-  h4.innerHTML = temp;
+  title.innerHTML = city.value;
+  mainTemp.innerHTML = Math.round(response.data.main.temp);
   let description = response.data.weather[0].main;
   let subtitle = document.querySelector("#description");
   subtitle.innerHTML = description;
@@ -69,12 +75,9 @@ function displayFaren(event) {
 
 function showCurrent(response) {
   console.log(response.data);
-  let temp = Math.round(response.data.main.temp);
   let city = response.data.name;
-  let h1 = document.querySelector("#current-city");
-  h1.innerHTML = city;
-  let h4 = document.querySelector("#celsius-temp");
-  h4.innerHTML = temp;
+  title.innerHTML = city;
+  mainTemp.innerHTML = Math.round(response.data.main.temp);
   let description = response.data.weather[0].main;
   let subtitle = document.querySelector("#description");
   subtitle.innerHTML = description;
@@ -101,8 +104,8 @@ function showTemp(event, element) {
 }
 
 function searchCity(city) {
-  let loadCity = document.querySelector("#current-city");
-  loadCity.innerHTML = city;
+  //let loadCity = document.querySelector("#current-city");
+  //loadCity.innerHTML = city;
   let apiKey = "b8472ba63e135218f57d24b1f32f73fa";
   let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${city}&units=metric&appid=${apiKey}`;
   axios.get(`${apiUrl}`).then(showCity);
