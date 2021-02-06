@@ -120,7 +120,7 @@ function searchByCityName(city) {
 }
 
 function restoreCurrent() {
-  navigator.geolocation.getCurrentPosition(showPosition);
+  navigator.geolocation.getCurrentPosition(searchByCityCoords);
 }
 
 let celsiusLink = document.querySelector("#celsius-link");
