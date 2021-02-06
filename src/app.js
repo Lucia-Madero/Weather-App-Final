@@ -56,6 +56,12 @@ function showCity(response) {
   let wind = Math.round(response.data.wind.speed);
   let currentWind = document.querySelector("#wind");
   currentWind.innerHTML = `Wind ${wind} %`;
+  let icon = document.querySelector("#today-icon");
+  icon.setAttribute(
+    "src",
+    `http://openweathermap.org/img/wn/${response.data.weather[0].icon}@2x.png`
+  );
+  icon.setAttribute("alt", response.data.weather[0].main);
 }
 
 function displayCelsius(event, response) {
