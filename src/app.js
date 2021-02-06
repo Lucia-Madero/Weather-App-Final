@@ -62,7 +62,7 @@ function showCity(response) {
   let icon = document.querySelector("#today-icon");
   icon.setAttribute(
     "src",
-    `http://openweathermap.org/img/wn/${response.data.weather[0].icon}@2x.png`
+    `https://openweathermap.org/img/wn/${response.data.weather[0].icon}@2x.png`
   );
   icon.setAttribute("alt", response.data.weather[0].main);
 }
@@ -107,7 +107,7 @@ function searchByCityCoords(position) {
 function showTemp(event, element) {
   event.preventDefault();
   element = document.querySelector("#search-box");
-  searchCity(element.value);
+  searchByCityName(element.value);
 }
 
 function searchByCityName(city) {
