@@ -1,39 +1,39 @@
-let now = new Date();
-let days = [
-  "Sunday",
-  "Monday",
-  "Tuesday",
-  "Wednesday",
-  "Thursday",
-  "Friday",
-  "Saturday",
-];
-let months = [
-  "January",
-  "February",
-  "March",
-  "April",
-  "May",
-  "June",
-  "July",
-  "August",
-  "September",
-  "October",
-  "November",
-  "December",
-];
-let day = days[now.getDay()];
-let number = now.getDate();
-let month = months[now.getMonth()];
-let hour = now.getHours();
-if (hour < 10) {
-  hour = ` 0${hour}`;
-}
-let minutes = now.getMinutes();
-if (minutes < 10) {
-  minutes = `0${minutes}`;
-}
 function displayTodayInfo() {
+  let now = new Date();
+  let days = [
+    "Sunday",
+    "Monday",
+    "Tuesday",
+    "Wednesday",
+    "Thursday",
+    "Friday",
+    "Saturday",
+  ];
+  let months = [
+    "January",
+    "February",
+    "March",
+    "April",
+    "May",
+    "June",
+    "July",
+    "August",
+    "September",
+    "October",
+    "November",
+    "December",
+  ];
+  let day = days[now.getDay()];
+  let number = now.getDate();
+  let month = months[now.getMonth()];
+  let hour = now.getHours();
+  if (hour < 10) {
+    hour = ` 0${hour}`;
+  }
+  let minutes = now.getMinutes();
+  if (minutes < 10) {
+    minutes = `0${minutes}`;
+  }
   let todayCalendar = document.querySelector("#today-calendar");
   todayCalendar.innerHTML = `${day}`;
   let currentDate = document.querySelector("#current-date");
