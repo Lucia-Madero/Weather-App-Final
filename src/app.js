@@ -42,14 +42,10 @@ function displayTodayInfo() {
   currentTime.innerHTML = `${hour}:${minutes}`;
 }
 
-let city = document.querySelector("#search-box");
-let title = document.querySelector("#current-city");
-let mainTemp = document.querySelector("#celsius-temp");
-let apiKey = "b8472ba63e135218f57d24b1f32f73fa";
-
 function showCity(response) {
   title.innerHTML = response.data.name;
   mainTemp.innerHTML = Math.round(response.data.main.temp);
+  currentCelsius = response.data.main.temp;
   let description = response.data.weather[0].main;
   let subtitle = document.querySelector("#description");
   subtitle.innerHTML = description;
@@ -67,25 +63,28 @@ function showCity(response) {
   icon.setAttribute("alt", response.data.weather[0].main);
 }
 
-function displayCelsius(event, response) {
+function displayCelsius(event) {
   event.preventDefault();
   let tempCelsius = document.querySelector("#celsius-temp");
-  let temp = response.data.main.temp;
-  tempCelsius.innerHTML = temp;
+  tempCelsius.innerHTML = Math.round(currentCelsius);
+  celsiusLink.classList.add("active");
+  farenheitLink.classList.remove("active");
 }
 
-function displayFaren(event) {
+function displayFahren(event) {
   event.preventDefault();
-  let tempCelsius = 4;
-  let farenTemp = `${tempCelsius + 32}`;
-  let tempFaren = document.querySelector("#celsius-temp");
-  tempFaren.innerHTML = farenTemp;
+  let tempElement = document.querySelector("#celsius-temp");
+  let farenTemp = (currentCelsius * 9) / 5 + 32;
+  tempElement.innerHTML = Math.round(farenTemp);
+  farenheitLink.classList.add("active");
+  celsiusLink.classList.remove("active");
 }
 
 function showCurrent(response) {
   let city = response.data.name;
   title.innerHTML = city;
   mainTemp.innerHTML = Math.round(response.data.main.temp);
+  currentCelsius = response.data.main.temp;
   let description = response.data.weather[0].main;
   let subtitle = document.querySelector("#description");
   subtitle.innerHTML = description;
@@ -123,10 +122,15 @@ function restoreCurrent() {
   navigator.geolocation.getCurrentPosition(searchByCityCoords);
 }
 
+let currentCelsius = null;
+let city = document.querySelector("#search-box");
+let title = document.querySelector("#current-city");
+let mainTemp = document.querySelector("#celsius-temp");
+let apiKey = "b8472ba63e135218f57d24b1f32f73fa";
 let celsiusLink = document.querySelector("#celsius-link");
 celsiusLink.addEventListener("click", displayCelsius);
 let farenheitLink = document.querySelector("#faren-link");
-farenheitLink.addEventListener("click", displayFaren);
+farenheitLink.addEventListener("click", displayFahren);
 let searchForm = document.querySelector("#search-form");
 searchForm.addEventListener("submit", showTemp);
 let SearchButton = document.querySelector("#search-button");

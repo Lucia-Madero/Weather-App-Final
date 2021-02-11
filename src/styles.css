@@ -114,3 +114,7 @@ body {
   font-size: x-small;
   vertical-align: text-top;
 }
+.units .active {
+  color: black;
+  cursor: pointer;
+}
