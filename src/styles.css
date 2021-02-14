@@ -26,12 +26,13 @@ body {
   float: left;
   transition: all 250ms ease-in-out;
 }
-.day-one :hover {
-  background: #95daf5;
-}
 
 .forecast {
   margin-top: 20px;
+}
+.forecast-icon {
+  width: 60px;
+  padding-right: 20px;
 }
 .image-today {
   width: 80px;

@@ -16,13 +16,12 @@
       rel="stylesheet"
     />
     <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
-
     <link rel="stylesheet" href="src/styles.css" />
     <title>The weather</title>
   </head>
   <body>
     <div class="weather-app">
-      <div class="container">
+      <div class="container-fluid">
         <div class="row">
           <div class="col-6">
             <form id="search-form">
@@ -35,19 +34,19 @@
               />
             </form>
           </div>
-          <div class="col-2">
+          <div class="col-3">
             <button type="button" class="btn btn-primary" id="search-button">
               Search
             </button>
           </div>
-          <div class="col-2">
+          <div class="col-3">
             <button type="button" class="btn btn-primary" id="current-button">
               Current
             </button>
           </div>
         </div>
         <div class="row">
-          <div class="col-5">
+          <div class="col-6">
             <div class="today">
               <h1 id="current-city"></h1>
               <img class="image-today" src="" alt="" id="today-icon" />
@@ -58,7 +57,7 @@
               </div>
             </div>
           </div>
-          <div class="col-4">
+          <div class="col-3">
             <div class="more-info">
               <h5 id="description"></h5>
               <small> <span class="humidity" id="humidity"></span> </small>
