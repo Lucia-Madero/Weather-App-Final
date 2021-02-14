@@ -56,7 +56,6 @@ function formatHours(timestamp) {
 }
 
 function showCity(response) {
-  console.log(response.data);
   title.innerHTML = response.data.name;
   mainTemp.innerHTML = Math.round(response.data.main.temp);
   currentCelsius = response.data.main.temp;
@@ -105,9 +104,9 @@ function showCurrent(response) {
   let humidity = Math.round(response.data.main.humidity);
   let currentHum = document.querySelector("#humidity");
   currentHum.innerHTML = `Humidity ${humidity} %`;
-  let wind = Math.round(response.data.wind.speed);
+  let wind = Math.round(response.data.wind.speed * 3, 6);
   let currentWind = document.querySelector("#wind");
-  currentWind.innerHTML = `Wind ${wind} %`;
+  currentWind.innerHTML = `Wind ${wind} km/h`;
 }
 
 function searchByCityCoords(position) {
