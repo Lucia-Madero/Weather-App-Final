@@ -126,14 +126,16 @@ function displayForecast(response) {
   let forecastElement = document.querySelector("#forecast");
   let forecast = null;
   forecastElement.innerHTML = null;
-  for (let index = 0; index < 6; index++) {
+  for (let index = 0; index < 4; index++) {
     forecast = response.data.list[index];
     forecastElement.innerHTML += `     
-    <div class="col-2 day one">
+    <div class="col-3 day one">
       <h6>${formatHours(forecast.dt * 1000)}</h6>
+      <br/>
       <img class= forecast-icon src="https://openweathermap.org/img/wn/${
         forecast.weather[0].icon
       }@2x.png"/>
+      <br/>
       <h6><strong>${Math.round(forecast.main.temp_max)}°</strong> ${Math.round(
       forecast.main.temp_min
     )}°</h6>

@@ -2,11 +2,15 @@ a {
   text-decoration: none;
 }
 body {
-  padding: 50px;
+  padding: 20px;
   font-family: "Yusei Magic", sans-serif;
 }
+h6 {
+  display: inline;
+}
 .btn-primary {
-  margin-left: 8px;
+  margin-top: 20px;
+  margin-left: 20px;
   background: white;
   color: black;
   border: 1px solid #ced4da;
@@ -29,17 +33,17 @@ body {
 
 .forecast {
   margin-top: 20px;
+  text-align: center;
 }
 .forecast-icon {
+  display: inline-block;
   width: 60px;
-  padding-right: 20px;
 }
 .image-today {
   width: 80px;
 }
 
 .today {
-  margin-top: 30px;
   text-align: left;
   margin-bottom: 15px;
 }
