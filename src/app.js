@@ -65,9 +65,9 @@ function showCity(response) {
   let humidity = Math.round(response.data.main.humidity);
   let currentHum = document.querySelector("#humidity");
   currentHum.innerHTML = `Humidity ${humidity} %`;
-  let wind = Math.round(response.data.wind.speed * 3, 6);
-  let currentWind = document.querySelector("#wind");
-  currentWind.innerHTML = `Wind ${wind} km/h`;
+  currentWind = Math.round(response.data.wind.speed * 3, 6);
+  let todayWind = document.querySelector("#wind");
+  todayWind.innerHTML = `Wind ${currentWind} km/h`;
   let icon = document.querySelector("#today-icon");
   icon.setAttribute(
     "src",
@@ -80,6 +80,8 @@ function displayCelsius(event) {
   event.preventDefault();
   let tempCelsius = document.querySelector("#celsius-temp");
   tempCelsius.innerHTML = Math.round(currentCelsius);
+  let windElement = document.querySelector("#wind");
+  windElement.innerHTML = `Wind ${currentWind} km/h`;
   celsiusLink.classList.add("active");
   farenheitLink.classList.remove("active");
 }
@@ -89,6 +91,9 @@ function displayFahren(event) {
   let tempElement = document.querySelector("#celsius-temp");
   let farenTemp = (currentCelsius * 9) / 5 + 32;
   tempElement.innerHTML = Math.round(farenTemp);
+  let windElement = document.querySelector("#wind");
+  let windFaren = currentWind / 1.609;
+  windElement.innerHTML = `Wind ${Math.round(windFaren)} mph`;
   farenheitLink.classList.add("active");
   celsiusLink.classList.remove("active");
 }
@@ -159,6 +164,7 @@ function restoreCurrent() {
 }
 
 let currentCelsius = null;
+let currentWind = null;
 let city = document.querySelector("#search-box");
 let title = document.querySelector("#current-city");
 let mainTemp = document.querySelector("#celsius-temp");
