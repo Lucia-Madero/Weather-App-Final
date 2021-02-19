@@ -17,7 +17,7 @@ h6 {
 
 .weather-app {
   width: fit-content;
-  border: 2px solid #aaa69d;
+  border: 1px solid #aaa69d;
   border-radius: 6px;
   padding: 30px;
   background: rgb(169, 220, 241);
